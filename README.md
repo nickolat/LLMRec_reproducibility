@@ -83,10 +83,3 @@ The results in the table are reported after evaluation on the original test set 
 | SGL      | 0.2969 | 0.1733 | 0.0321 | lr: [0.0001, 0.0005, 0.001, 0.005, **0.01**], l_w: [1e-5, **1e-2**] |
 
 *: 0.00055 has been paired only with 3e-4
-
-
-
-
-=======
-# LLMRec_reproducibility
->>>>>>> upstream/main
