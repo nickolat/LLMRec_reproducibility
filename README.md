@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # How Powerful are LLMs to Support Multimodal Recommendation? A Reproducibility Study of LLMRec
 
 This repository contains reproducibility and benchmarking codes for the LLMRec paper: https://arxiv.org/pdf/2311.00423
