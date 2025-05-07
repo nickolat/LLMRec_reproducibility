@@ -22,7 +22,7 @@ The already processed dataset is available at the Google Drive link above (path:
 
 <h4> RQ2: Benchmarking with GPT-4 Turbo </h4>
 
-Update `key` in `utilities.py` with your OpenAI key value and `endpoint` in `gpt4_x.py`
+Update `key` and `endpoint` in `utilities.py` with your own OpenAI key and endpoint values 
 
 After having downloaded the paper's code, add the `gpt4_x.py` and `utilities.py` files in the directory `LLM_augmentation_construct_prompt`
 
