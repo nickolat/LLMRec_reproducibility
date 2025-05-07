@@ -33,11 +33,11 @@ python ./gpt4_item.py
 ```
 <h4> RQ5: Topological properties of the LLM-augmented user-item graph </h4>
 
-The computation of the following characteristics: `['space_size', 'shape', 'density', 'gini_user',
+The code for the computation of the following characteristics: `['space_size', 'shape', 'density', 'gini_user',
                             'gini_item', 'average_degree_users', 'average_degree_items',
                             'average_clustering_coefficient_dot_users',
                             'average_clustering_coefficient_dot_items', 'degree_assortativity_users',
-                            'degree_assortativity_items']` is contained in the Topology directory and based on the code from the GitHub repository at https://github.com/sisinflab/Topology-Graph-Collaborative-Filtering.git
+                            'degree_assortativity_items']` is contained in the Topology directory and based on the GitHub repository at https://github.com/sisinflab/Topology-Graph-Collaborative-Filtering.git
 
 ```
 python Topology/check_dataset.py
