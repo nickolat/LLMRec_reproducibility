@@ -5,10 +5,12 @@ This repository contains reproducibility and benchmarking codes for the LLMRec p
 -----------
 <h2> Datasets </h2>
 
-`Netflix` [Original Split]: For replicability, dataset is available in LLMRec GitHub repository: https://github.com/HKUDS/LLMRec.git.
-For reproducibility, check: ... (Files contained in data/Netflix/Train_Test have been created following the authors' pipeline).  
+New data are stored in: https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing
 
-`Netflix` [Our Split]: For our benchmarking we used data available at: ... (path: data/Netflix/Train_Val_Test) 
+`Netflix` [Original Split]: For replicability, dataset is available in LLMRec GitHub repository: https://github.com/HKUDS/LLMRec.git.
+For reproducibility, check the Google Drive link above (Files contained in ./data/Netflix/Train_Test have been created following the authors' pipeline).  
+
+`Netflix` [Our Split]: For our benchmarking we used data available at the Google Drive link above (path: ./data/Netflix/Train_Val_Test) 
 
 `Amazon-DigitalMusic`: Original dataset available at https://cseweb.ucsd.edu/~jmcauley/datasets/amazon/links.html, 
 processed with Ducho (GitHub repository: https://github.com/sisinflab/Ducho.git): 
@@ -16,7 +18,7 @@ processed with Ducho (GitHub repository: https://github.com/sisinflab/Ducho.git)
 2. Processing of the dataset via Ducho/demos/demo_recsys/prepare_dataset.py with name='Digital_Music' 
 and the meta dataset including also 'title' (two checks on its value should be added: NaN values or values with a string length = 0 are not allowed)
 
-The already processed dataset is available at: ... (path: data/Amazon)
+The already processed dataset is available at the Google Drive link above (path: ./data/Amazon)
 
 <h2> Usage </h2>
 
@@ -44,6 +46,9 @@ The computation of the following characteristics: `['space_size', 'shape', 'dens
 python Topology/check_dataset.py
 python Topology/generate_only_characteristics.py
 ```
+
+The already processed and analyzed data are available at the Google Drive link above (path: ./data_Topology)
+
 <h2> Hyperparameter study </h2>
 
 In the following, the complete gridsearch of the Baselines on the chosen hyperparameters is reported in terms of Recall@20, nDCG@20 and Precision@20.
