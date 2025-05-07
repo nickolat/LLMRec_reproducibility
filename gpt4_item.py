@@ -9,9 +9,7 @@ gpt4_embedding_dict = dictionary({'year':{}, 'title':{}, 'director':{}, 'country
 file_name = file_path + "gpt4_itemLogging.txt"
 logger = Logger(filename=file_name, is_debug=args.debug)
 
-endpoint = os.getenv("ENDPOINT_URL", " Insert your Endpoint URL here ")
-deployment = os.getenv("DEPLOYMENT_NAME", "gpt-4")
-subscription_key = os.getenv("AZURE_OPENAI_API_KEY", key)
+
 
 def construct_prompting(idx):
     """

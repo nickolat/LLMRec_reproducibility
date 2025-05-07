@@ -13,6 +13,10 @@ args = parse_args() # Change in the parser data_path and dataset
 file_path = args.data_path + args.dataset + '/'
 embeddingModel = "text-embedding-ada-002"
 
+endpoint = os.getenv("ENDPOINT_URL", " Insert your Endpoint URL here")
+deployment = os.getenv("DEPLOYMENT_NAME", "gpt-4")
+subscription_key = os.getenv("AZURE_OPENAI_API_KEY", key)
+
 # Load item attributes
 df = pd.read_csv(file_path + 'movies.csv', names=['id', 'year', 'title']) # all movies
 urls = pd.read_csv(file_path + 'urls.csv', names=['id', 'title', 'url']) # 'url' is a string of a base64 encoded image

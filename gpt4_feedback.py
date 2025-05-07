@@ -8,10 +8,6 @@ gpt4_feedback_dict = dictionary({},"gpt4_feedback_dict")
 file_name = file_path + "gpt4_feedbackLogging.txt"
 logger = Logger(filename=file_name, is_debug=args.debug)
 
-endpoint = os.getenv("ENDPOINT_URL", " Insert your Endpoint URL here")
-deployment = os.getenv("DEPLOYMENT_NAME", "gpt-4")
-subscription_key = os.getenv("AZURE_OPENAI_API_KEY", key)
-
 def construct_prompting(item_list, candidate_list):
 
     """
