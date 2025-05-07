@@ -5,18 +5,16 @@ This repository contains reproducibility and benchmarking codes for the LLMRec p
 -----------
 <h2> Datasets </h2>
 
-New data are stored in: https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing
+Data storage: https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing
 
 `Netflix` [Original Split]: For replicability, dataset is available in LLMRec GitHub repository: https://github.com/HKUDS/LLMRec.git.
 For reproducibility, check the Google Drive link above (Files contained in ./data/Netflix/Train_Test have been created following the authors' pipeline).  
 
 `Netflix` [Our Split]: For our benchmarking we used data available at the Google Drive link above (path: ./data/Netflix/Train_Val_Test) 
 
-`Amazon-DigitalMusic`: Original dataset available at https://cseweb.ucsd.edu/~jmcauley/datasets/amazon/links.html, 
-processed with Ducho (GitHub repository: https://github.com/sisinflab/Ducho.git): 
+`Amazon-DigitalMusic`: Original dataset available at https://cseweb.ucsd.edu/~jmcauley/datasets/amazon/links.html, processed with Ducho (GitHub repository: https://github.com/sisinflab/Ducho.git): 
 1. Downloading of the Original Dataset (Digital_Music) via Ducho/demos/demo_recsys/download_amazon.sh
-2. Processing of the dataset via Ducho/demos/demo_recsys/prepare_dataset.py with name='Digital_Music' 
-and the meta dataset including also 'title' (two checks on its value should be added: NaN values or values with a string length = 0 are not allowed)
+2. Processing of the dataset via Ducho/demos/demo_recsys/prepare_dataset.py with name='Digital_Music' and the meta dataset including also 'title' (two checks on its value should be added: NaN values or values with a string length = 0 are not allowed)
 
 The already processed dataset is available at the Google Drive link above (path: ./data/Amazon)
 
@@ -35,7 +33,6 @@ python ./gpt4_item.py
 ```
 <h4> RQ5: Topological properties of the LLM-augmented user-item graph </h4>
 
-
 The computation of the following characteristics: `['space_size', 'shape', 'density', 'gini_user',
                             'gini_item', 'average_degree_users', 'average_degree_items',
                             'average_clustering_coefficient_dot_users',
@@ -46,7 +43,6 @@ The computation of the following characteristics: `['space_size', 'shape', 'dens
 python Topology/check_dataset.py
 python Topology/generate_only_characteristics.py
 ```
-
 The already processed and analyzed data are available at the Google Drive link above (path: ./data_Topology)
 
 <h2> Hyperparameter study </h2>
