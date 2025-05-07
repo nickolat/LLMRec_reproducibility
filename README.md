@@ -26,7 +26,7 @@ The already processed dataset is available at the Google Drive link above (path:
 
 Update `key` in `utilities.py` with your OpenAI key value and `endpoint` in `gpt4_x.py`
 
-After having downloaded the paper's code, add the `gpt4_x.py` files in the directory `LLM_augmentation_construct_prompt`
+After having downloaded the paper's code, add the `gpt4_x.py` and `utilities.py` files in the directory `LLM_augmentation_construct_prompt`
 
 ```
 python ./gpt4_feedback.py
