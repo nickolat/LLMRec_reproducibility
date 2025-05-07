@@ -40,7 +40,7 @@ The computation of the following characteristics: `['space_size', 'shape', 'dens
                             'gini_item', 'average_degree_users', 'average_degree_items',
                             'average_clustering_coefficient_dot_users',
                             'average_clustering_coefficient_dot_items', 'degree_assortativity_users',
-                            'degree_assortativity_items']` is based on the code from the GitHub repository at https://github.com/sisinflab/Topology-Graph-Collaborative-Filtering.git
+                            'degree_assortativity_items']` is contained in the Topology directory and based on the code from the GitHub repository at https://github.com/sisinflab/Topology-Graph-Collaborative-Filtering.git
 
 ```
 python Topology/check_dataset.py
