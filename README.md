@@ -1,11 +1,11 @@
 # How Powerful are LLMs to Support Multimodal Recommendation? A Reproducibility Study of LLMRec
 
-This repository contains reproducibility and benchmarking codes for the LLMRec paper: https://arxiv.org/pdf/2311.00423
+This repository contains reproducibility and benchmarking codes for the LLMRec paper: https://arxiv.org/pdf/2311.00423.
 
 -----------
 <h2> Datasets </h2>
 
-Data storage: https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing
+Data storage (anonymous): https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing
 
 `Netflix` [Original Split]: For replicability, dataset is available in LLMRec GitHub repository: https://github.com/HKUDS/LLMRec.git.
 For reproducibility, check the Google Drive link above (Files contained in ./data/Netflix/Train_Test have been created following the authors' pipeline).  
@@ -16,21 +16,83 @@ For reproducibility, check the Google Drive link above (Files contained in ./dat
 1. Downloading of the Original Dataset (Digital_Music) via Ducho/demos/demo_recsys/download_amazon.sh
 2. Processing of the dataset via Ducho/demos/demo_recsys/prepare_dataset.py with name='Digital_Music' and the meta dataset including also 'title' (two checks on its value should be added: NaN values or values with a string length = 0 are not allowed)
 
-The already processed dataset is available at the Google Drive link above (path: ./data/Amazon)
+The already processed dataset is available at the Google Drive link above (path: ./data/Amazon).
+
+To run each experiment, you have to put all the necessary input data in:
+```
+├─ LLMRec/
+    ├── data/
+        ├── netflix/
+        ├── amazon/
+```
 
 <h2> Usage </h2>
 
+<h4> RQ1: Replicability and reproducibility study </h4>
+
+For LLMRec replicability: 
+- We used the original code in the official repository, specifically the
+latest commit available ([Jun 10, 2024](https://github.com/HKUDS/LLMRec/tree/169f361408dedc2334b6aac9ff7a8d016cc84230)).
+- To use ‘netflix’ dataset name, change the name in line 71 of `main.py` original file.
+
+For LLMRec reproducibility:
+1. First, use the original LATTICE or MMSSL implementations (available in LLMRec repository) to obtain the `candidate_indices`
+2. Add the `LLM_aug_unimodal` directory to LLMRec
+3. In `utils.py`, set your keys and endpoints to use `gpt-35-turbo-16k` LLM and 
+set `dataset = 'netflix'`; `llm = 'gpt35'` and the `baseline_model` used ('mmssl' or 'lattice')
+4. Run:
+    ```
+    cd LLMRec/LLM_aug_unimodal/
+    python ./llm_feedback.py
+    python ./llm_user.py
+    python ./llm_item.py
+    ```
+Note: we used Microsoft Azure AI platform to access LLMs. 
+
+
+<h4> RQ2: Benchmarking with LLama </h4>
+
+1. Use codes in `LLM_aug_unimodal`
+2. Set your keys and endpoints in `utils.py` to use `Meta-Llama-3.1-405B-Instruct` LLM
+and set: `dataset = 'netflix'`; `llm = 'llama'` and the `baseline_model` used ('mmssl' or 'lattice')
+3. Run:
+    ```
+    cd LLMRec/LLM_aug_unimodal/
+    python ./llm_feedback.py
+    python ./llm_user.py
+    python ./llm_item.py
+    ```
+
 <h4> RQ2: Benchmarking with GPT-4 Turbo </h4>
 
-Update `key` and `endpoint` in `utilities.py` with your own OpenAI key and endpoint values 
+1. Add the `LLM_aug_multimodal` directory to LLMRec
+2. Update `key` and `endpoint` in `utilities.py` with your own subscription key and endpoint values
+3. Run:
+    ```
+    cd LLMRec/LLM_aug_multimodal/
+    python ./gpt4_feedback.py
+    python ./gpt4_user.py
+    python ./gpt4_item.py
+    ```
 
-After having downloaded the paper's code, add the `gpt4_x.py` and `utilities.py` files in the directory `LLM_augmentation_construct_prompt`
+<h4> RQ4: Benchmarking on Amazon-music dataset </h4>
 
-```
-python ./gpt4_feedback.py
-python ./gpt4_user.py
-python ./gpt4_item.py
-```
+In order to execute LLMRec with the Amazon-music dataset and GPT-3.5 Turbo:
+1. Use codes in `LLM_aug_unimodal`
+2. In `utils.py` set: `dataset = 'amazon'`; `llm = 'gpt35'` and `baseline_model` ('mmssl' or 'lattice').
+3. Run:
+    ```
+    cd LLMRec/LLM_aug_unimodal/
+    python ./llm_feedback.py
+    python ./llm_user.py
+    python ./llm_item.py
+    ```
+4. Add the following lines of code after line 72 in the original `main.py` file:
+    ```
+    elif args.dataset=='amazon':
+        augmented_total_embed_dict = {'title':[] , 'genres':[], 'artist':[], 'country':[], 'language':[]}
+    ```
+
 <h4> RQ5: Topological properties of the LLM-augmented user-item graph </h4>
 
 The code for the computation of the following characteristics: `['space_size', 'shape', 'density', 'gini_user',
