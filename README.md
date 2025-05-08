@@ -39,7 +39,7 @@ For LLMRec reproducibility:
 1. First, use the original LATTICE or MMSSL implementations (available in LLMRec repository) to obtain the `candidate_indices`
 2. Add the `LLM_aug_unimodal` directory to LLMRec
 3. In `utils.py`, set your keys and endpoints to use `gpt-35-turbo-16k` LLM and 
-set `dataset = 'netflix'`; `llm = 'gpt35'` and the `baseline_model` used ('mmssl' or 'lattice')
+set `dataset = 'netflix'`, `llm = 'gpt35'`
 4. Run:
     ```
     cd LLMRec/LLM_aug_unimodal/
@@ -54,7 +54,7 @@ Note: we used Microsoft Azure AI platform to access LLMs.
 
 1. Use codes in `LLM_aug_unimodal`
 2. Set your keys and endpoints in `utils.py` to use `Meta-Llama-3.1-405B-Instruct` LLM
-and set: `dataset = 'netflix'`; `llm = 'llama'` and the `baseline_model` used ('mmssl' or 'lattice')
+and set: `dataset = 'netflix'`, `llm = 'llama'`
 3. Run:
     ```
     cd LLMRec/LLM_aug_unimodal/
@@ -79,7 +79,7 @@ and set: `dataset = 'netflix'`; `llm = 'llama'` and the `baseline_model` used ('
 
 In order to execute LLMRec with the Amazon-music dataset and GPT-3.5 Turbo:
 1. Use codes in `LLM_aug_unimodal`
-2. In `utils.py` set: `dataset = 'amazon'`; `llm = 'gpt35'` and `baseline_model` ('mmssl' or 'lattice').
+2. In `utils.py` set: `dataset = 'amazon'`, `llm = 'gpt35'`
 3. Run:
     ```
     cd LLMRec/LLM_aug_unimodal/
@@ -115,19 +115,20 @@ In bold, the best hyperparameters.
 <h4>Netflix</h4>
 The results in the table are reported after evaluation on the original test set provided by the authors' paper.
 
-| Baseline | R@20   | N@20   | P@20   | Hyperparameter Search                                                                                                      |
-|----------|--------|--------|--------|----------------------------------------------------------------------------------------------------------------------------|
-| MF-BPR   | 0.0623 | 0.0246 | 0.0031 | lr: [0.0001, 0.0005, 0.001, 0.005, **0.01**], l_w: [1e-5, **1e-2**]                                                        |
-| NGCF     | 0.0645 | 0.0265 | 0.0032 | lr: [0.0005, 0.001, 0.005, 0.01, **0.02**, 0.03, 0.04], l_w: [1e-5, 8e-3, **1e-2**]                                        |
-| LightGCN | 0.0645 | 0.0239 | 0.0032 | lr: [0.0005, 0.001, 0.005, 0.01, **0.02**, 0.03, 0.04], l_w: [1e-5, **8e-3**, 1e-2]                                        |
-| VBPR     | 0.0612 | 0.0205 | 0.0031 | lr: [0.0001, 0.0005, 0.001, 0.005, **0.01**], l_w: [1e-5, **1e-2**]                                                        |
-| BM3      | 0.0726 | 0.0251 | 0.0036 | lr: [0.0001, 0.0005, 0.001, **0.005**, 0.01], reg_weight: [0.1, **0.01**]                                                  |
-| MGCN     | 0.0645 | 0.0226 | 0.0032 | lr: [**0.0001**, 0.001, 0.01], c_l: [**0.001**, 0.01, 0.1]                                                                 |
-| FREEDOM  | 0.0612 | 0.0214 | 0.0031 | lr: [0.0001, 0.0005, 0.001, **0.005**, 0.01], l_w: [**1e-5**, 1e-2]                                                        |
-| LATTICE  | 0.0656 | 0.0267 | 0.0033 | lr: [0.0001, 0.0005, 0.001, **0.005**, 0.01], regs: [1e-5, **1e-2**], n_layers: 1, n_ui_layers: 2, topk: 20, lambda_coeff: 0.7 |
-| MICRO    | 0.0602 | 0.0194 | 0.0030 | lr: [0.0001, **0.0005**, 0.001, 0.005, 0.01], regs: [**1e-5**, 1e-2], n_layers: 1, n_ui_layers: 2, topk: 20, lambda_coeff: 0.7     |
-| MMSSL    | 0.0667 | 0.0212 | 0.0033 | lr generator: [**0.00055***, 4.5e-4, 5e-4, 5.4e-3, 5.6e-3], lr discriminator: [2.5e-4, **3e-4**, 3.5e-4]                           |
-| SGL      | 0.0732 | 0.0273 | 0.0037 | lr: [0.0001, 0.0005, 0.001, **0.005**, 0.01], l_w: [1e-5, **1e-2**]                                                                |
+| Baseline   | R@20   | N@20   | P@20   | Hyperparameter Search                                                                                                          |
+|------------|--------|--------|--------|--------------------------------------------------------------------------------------------------------------------------------|
+| MF-BPR     | 0.0623 | 0.0246 | 0.0031 | lr: [0.0001, 0.0005, 0.001, 0.005, **0.01**], l_w: [1e-5, **1e-2**]                                                            |
+| NGCF       | 0.0645 | 0.0265 | 0.0032 | lr: [0.0005, 0.001, 0.005, 0.01, **0.02**, 0.03, 0.04], l_w: [1e-5, 8e-3, **1e-2**]                                            |
+| LightGCN   | 0.0645 | 0.0239 | 0.0032 | lr: [0.0005, 0.001, 0.005, 0.01, **0.02**, 0.03, 0.04], l_w: [1e-5, **8e-3**, 1e-2]                                            |
+| VBPR       | 0.0612 | 0.0205 | 0.0031 | lr: [0.0001, 0.0005, 0.001, 0.005, **0.01**], l_w: [1e-5, **1e-2**]                                                            |
+| BM3        | 0.0726 | 0.0251 | 0.0036 | lr: [0.0001, 0.0005, 0.001, **0.005**, 0.01], reg_weight: [0.1, **0.01**]                                                      |
+| MGCN       | 0.0645 | 0.0226 | 0.0032 | lr: [**0.0001**, 0.001, 0.01], c_l: [**0.001**, 0.01, 0.1]                                                                     |
+| FREEDOM    | 0.0612 | 0.0214 | 0.0031 | lr: [0.0001, 0.0005, 0.001, **0.005**, 0.01], l_w: [**1e-5**, 1e-2]                                                            |
+| LATTICE    | 0.0656 | 0.0267 | 0.0033 | lr: [0.0001, 0.0005, 0.001, **0.005**, 0.01], regs: [1e-5, **1e-2**], n_layers: 1, n_ui_layers: 2, topk: 20, lambda_coeff: 0.7 |
+| MICRO      | 0.0602 | 0.0194 | 0.0030 | lr: [0.0001, **0.0005**, 0.001, 0.005, 0.01], regs: [**1e-5**, 1e-2], n_layers: 1, n_ui_layers: 2, topk: 20, lambda_coeff: 0.7 |
+| MMSSL      | 0.0667 | 0.0212 | 0.0033 | lr generator: [**0.00055***, 4.5e-4, 5e-4, 5.4e-3, 5.6e-3], lr discriminator: [2.5e-4, **3e-4**, 3.5e-4]                       |
+| SGL        | 0.0732 | 0.0273 | 0.0037 | lr: [0.0001, 0.0005, 0.001, **0.005**, 0.01], l_w: [1e-5, **1e-2**]                                                            |
+| **RLMRec** | 0.0683 | 0.0231 | 0.0034 | layer_num: [1,2,3,**4**], reg_weight: [0.5e-6, **0.83e-6**, 1.0e-6, 1.5e-6, 2.0e-6]                                            |
 
 <h4>Amazon-Music</h4>
 

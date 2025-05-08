@@ -11,9 +11,6 @@ dataset = "netflix"
 ## LLM ('gpt35' or 'llama')
 llm = 'gpt35'
 
-## BASELINE ('lattice' or 'mmssl')
-baseline_model = 'mmssl'
-
 ## KEYS FOR LLM API
 OPENAI_KEY = "" # only if you use OPENAI API
 # Note: we used three different AZURE endpoints and keys for embeddings, GPT, LLama
@@ -30,7 +27,6 @@ endpoint_llama = "Insert your endpoint for LLAMA"
 # DATA PATH
 file_path = f"../data/{dataset}/"
 
-
 # item attribute columns and augmented features
 if dataset == "amazon":
     item_attribute_cols = ['id','title','genres']
@@ -38,7 +34,6 @@ if dataset == "amazon":
 elif dataset == "netflix":
     item_attribute_cols = ['id','year','title']
     item_attribute_augm = ['director', 'country', 'language']
-
 
 # client and model_type settings
 if llm == 'gpt35':
@@ -71,7 +66,6 @@ client_gpt = AzureOpenAI(
 
 # for LLAMA
 client_llama = ChatCompletionsClient(endpoint=endpoint_llama, credential=AzureKeyCredential(KEY_LLAMA))
-
 
 
 ############ Using AZURE API
