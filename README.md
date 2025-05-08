@@ -128,7 +128,7 @@ The results in the table are reported after evaluation on the original test set 
 | MICRO      | 0.0602 | 0.0194 | 0.0030 | lr: [0.0001, **0.0005**, 0.001, 0.005, 0.01], regs: [**1e-5**, 1e-2], n_layers: 1, n_ui_layers: 2, topk: 20, lambda_coeff: 0.7 |
 | MMSSL      | 0.0667 | 0.0212 | 0.0033 | lr generator: [**0.00055***, 4.5e-4, 5e-4, 5.4e-3, 5.6e-3], lr discriminator: [2.5e-4, **3e-4**, 3.5e-4]                       |
 | SGL        | 0.0732 | 0.0273 | 0.0037 | lr: [0.0001, 0.0005, 0.001, **0.005**, 0.01], l_w: [1e-5, **1e-2**]                                                            |
-| **RLMRec** | 0.0683 | 0.0231 | 0.0034 | layer_num: [1,2,3,**4**], reg_weight: [0.5e-6, **0.83e-6**, 1.0e-6, 1.5e-6, 2.0e-6]                                            |
+| *RLMRec* | 0.0683 | 0.0231 | 0.0034 | layer_num: [1,2,3,**4**], reg_weight: [0.5e-6, **0.83e-6**, 1.0e-6, 1.5e-6, 2.0e-6]                                            |
 
 <h4>Amazon-Music</h4>
 
