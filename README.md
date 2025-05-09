@@ -1,6 +1,6 @@
 # How Powerful are LLMs to Support Multimodal Recommendation? A Reproducibility Study of LLMRec
 
-This repository contains reproducibility and benchmarking codes for the LLMRec paper: https://arxiv.org/pdf/2311.00423.
+This repository contains reproducibility and benchmarking codes for the [LLMRec paper](https://doi.org/10.1145/3616855.3635853).
 
 -----------
 <h2> Datasets </h2>
@@ -34,20 +34,31 @@ For LLMRec replicability:
 - We used the original code in the official repository, specifically the
 latest commit available ([Jun 10, 2024](https://github.com/HKUDS/LLMRec/tree/169f361408dedc2334b6aac9ff7a8d016cc84230)).
 - To use ‘netflix’ dataset name, change the name in line 71 of `main.py` original file.
+- Run:   
+  ```
+   cd LLMRec/
+   python ./main.py --dataset netflix
+   ```
 
-For LLMRec reproducibility:
+For LLMRec reproducibility from scratch:
 1. First, use the original LATTICE or MMSSL implementations (available in LLMRec repository) to obtain the `candidate_indices`
 2. Add the `LLM_aug_unimodal` directory to LLMRec
 3. In `utils.py`, set your keys and endpoints to use `gpt-35-turbo-16k` LLM and 
 set `dataset = 'netflix'`, `llm = 'gpt35'`
 4. Run:
     ```
+    # LLM-based Data Augmentation
     cd LLMRec/LLM_aug_unimodal/
     python ./llm_feedback.py
     python ./llm_user.py
     python ./llm_item.py
+    
+    # Recommender training with LLM-augmented Data
+    cd LLMRec/
+    python ./main.py --dataset netflix
     ```
-Note: we used Microsoft Azure AI platform to access LLMs. 
+
+Note: we used Microsoft Azure AI platform to access all LLMs. 
 
 
 <h4> RQ2: Benchmarking with LLama </h4>
@@ -57,10 +68,15 @@ Note: we used Microsoft Azure AI platform to access LLMs.
 and set: `dataset = 'netflix'`, `llm = 'llama'`
 3. Run:
     ```
+    # LLM-based Data Augmentation
     cd LLMRec/LLM_aug_unimodal/
     python ./llm_feedback.py
     python ./llm_user.py
     python ./llm_item.py
+   
+    # Recommender training with LLM-augmented Data
+    cd LLMRec/
+    python ./main.py --dataset netflix
     ```
 
 <h4> RQ2: Benchmarking with GPT-4 Turbo </h4>
@@ -69,28 +85,38 @@ and set: `dataset = 'netflix'`, `llm = 'llama'`
 2. Update `key` and `endpoint` in `utilities.py` with your own subscription key and endpoint values
 3. Run:
     ```
+    # LLM-based Data Augmentation
     cd LLMRec/LLM_aug_multimodal/
     python ./gpt4_feedback.py
     python ./gpt4_user.py
     python ./gpt4_item.py
+   
+    # Recommender training with LLM-augmented Data
+    cd LLMRec/
+    python ./main.py --dataset netflix
     ```
 
 <h4> RQ4: Benchmarking on Amazon-music dataset </h4>
 
-In order to execute LLMRec with the Amazon-music dataset and GPT-3.5 Turbo:
+In order to execute LLMRec with the Amazon-music dataset and `gpt-35-turbo-16k`:
 1. Use codes in `LLM_aug_unimodal`
 2. In `utils.py` set: `dataset = 'amazon'`, `llm = 'gpt35'`
-3. Run:
+3. Add the following lines of code after line 72 in the original `main.py` file:
     ```
+    elif args.dataset=='amazon':
+        augmented_total_embed_dict = {'title':[] , 'genres':[], 'artist':[], 'country':[], 'language':[]}
+    ```
+4. Run:
+    ```
+    # LLM-based Data Augmentation
     cd LLMRec/LLM_aug_unimodal/
     python ./llm_feedback.py
     python ./llm_user.py
     python ./llm_item.py
-    ```
-4. Add the following lines of code after line 72 in the original `main.py` file:
-    ```
-    elif args.dataset=='amazon':
-        augmented_total_embed_dict = {'title':[] , 'genres':[], 'artist':[], 'country':[], 'language':[]}
+   
+    # Recommender training with LLM-augmented Data
+    cd LLMRec/
+    python ./main.py --dataset amazon
     ```
 
 <h4> RQ5: Topological properties of the LLM-augmented user-item graph </h4>
