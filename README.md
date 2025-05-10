@@ -3,6 +3,7 @@
 This repository contains reproducibility and benchmarking codes for the [LLMRec paper](https://doi.org/10.1145/3616855.3635853).
 
 -----------
+
 <h2> Datasets </h2>
 
 The anonymous data storage is available [here](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing).
@@ -61,7 +62,7 @@ set `dataset = 'netflix'`, `llm = 'gpt35'`
 
 For Baselines reproducibility, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository.
 The corresponding configuration files used are in the config_files directory of the said repository. 
-Add `binarize: True` in the config files in order to use the provided versions of both datasets.[](#elliot) 
+Add `binarize: True` in the config files in order to use the provided versions of both datasets. 
 
 Note: we used Microsoft Azure AI platform to access all LLMs. 
 
@@ -102,7 +103,7 @@ and set: `dataset = 'netflix'`, `llm = 'llama'`
 
 <h4> RQ3: Benchmarking with new baselines and RLMRec </h4>
 
-- For new recommendation baselines, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository following the details described above(#elliot) .
+- For new recommendation baselines, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository following the same instructions defined above.
 
 - For RLMRec, use the official [repository](https://github.com/HKUDS/RLMRec).
 Substitute the corresponding directories in RLMRec (./emb, ./item, ./user) to the ones in the downloaded repository (path: ./generation). Dataset already augmented and processed is available in the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (path: ./data/Netflix/Train_Val_Test/RLMRec)
