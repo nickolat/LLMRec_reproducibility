@@ -41,7 +41,8 @@ latest commit available ([Jun 10, 2024](https://github.com/HKUDS/LLMRec/tree/169
    ```
 
 For LLMRec reproducibility from scratch:
-1. First, use the original LATTICE or MMSSL implementations (available in LLMRec repository) to obtain the `candidate_indices`
+1. First, use the original LATTICE or MMSSL implementations (available in LLMRec repository) to obtain the `candidate_indices`,
+as indicated [here](https://github.com/HKUDS/LLMRec?tab=readme-ov-file#-candidate-preparing-for-llm-based-implicit-feedback-augmentation)
 2. Add the `LLM_aug_unimodal` directory to LLMRec
 3. In `utils.py`, set your keys and endpoints to use `gpt-35-turbo-16k` LLM and 
 set `dataset = 'netflix'`, `llm = 'gpt35'`
@@ -95,6 +96,11 @@ and set: `dataset = 'netflix'`, `llm = 'llama'`
     cd LLMRec/
     python ./main.py --dataset netflix
     ```
+
+<h4> RQ3: Benchmarking with new baselines and RLMRec </h4>
+
+- To run the new recommendation baselines, use: https://github.com/sisinflab/Graph-Missing-Modalities
+- To run RLMRec, use the official repository: https://github.com/HKUDS/RLMRec
 
 <h4> RQ4: Benchmarking on Amazon-music dataset </h4>
 
@@ -177,6 +183,6 @@ The results in the table are reported after evaluation on the original test set 
 | MMSSL*   | 0.3211 | 0.2168 | 0.0340 | lr generator: [0.00055**, **4.5e-4**, 5e-4, 5.4e-3, 5.6e-3], lr discriminator: [**2.5e-4**, 3e-4, 3.5e-4]                      |
 | SGL      | 0.2969 | 0.1733 | 0.0321 | lr: [0.0001, 0.0005, 0.001, 0.005, **0.01**], l_w: [1e-5, **1e-2**]                                                            |
 
-*: original implementation. The remaining models were run using Elliot.
+*: original implementation. The remaining models were run using [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities).
 
 **: 0.00055 has been paired only with 3e-4
