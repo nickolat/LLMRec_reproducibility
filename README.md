@@ -67,8 +67,8 @@ Note: we used Microsoft Azure AI platform to access all LLMs.
 For LATTICE and MMSSL use the official LLMRec repository;
 for MICRO use its official [repository](https://github.com/CRIPAC-DIG/MICRO).
 
-For the other baselines, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository. 
-- Use the corresponding configuration files in the `config_files` directory of that repository. 
+For the other baselines, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository: 
+- Use the corresponding configuration files in the `config_files` directory of the repository. 
 - Add `binarize: True` in the config files in order to use the provided versions of both datasets. 
 - To enable deterministic behavior with CUDA, set: `os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"`.
 
