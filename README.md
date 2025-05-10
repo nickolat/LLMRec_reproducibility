@@ -13,7 +13,7 @@ For reproducibility, check the [data storage](https://drive.google.com/file/d/1k
 
 `Netflix` [Our Split]: For our benchmarking we used data available in the [data storage]((https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing)) (path: ./data/Netflix/Train_Val_Test) 
 
-`Amazon-DigitalMusic`: The original dataset is available [here](https://cseweb.ucsd.edu/~jmcauley/datasets/amazon/links.html), it has been processed with [Ducho](https://github.com/sisinflab/Ducho.git): 
+`Amazon-DigitalMusic`: The original dataset is available [here](https://cseweb.ucsd.edu/~jmcauley/datasets/amazon/links.html), and processed with [Ducho](https://github.com/sisinflab/Ducho.git): 
 1. Downloading of the Original Dataset (Digital_Music) via Ducho/demos/demo_recsys/download_amazon.sh
 2. Processing of the dataset via Ducho/demos/demo_recsys/prepare_dataset.py with name='Digital_Music' and the meta dataset including also 'title' (two checks on its value should be added: NaN values or values with a string length = 0 are not allowed)
 
