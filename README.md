@@ -5,18 +5,18 @@ This repository contains reproducibility and benchmarking codes for the [LLMRec 
 -----------
 <h2> Datasets </h2>
 
-Data storage (anonymous): https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing
+The anonymous data storage is available [here](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing).
 
-`Netflix` [Original Split]: For replicability, dataset is available in LLMRec GitHub repository: https://github.com/HKUDS/LLMRec.git.
-For reproducibility, check the Google Drive link above (Files contained in ./data/Netflix/Train_Test have been created following the authors' pipeline).  
+`Netflix` [Original Split]: For replicability, dataset is available in [LLMRec GitHub repository](https://github.com/HKUDS/LLMRec.git).
+For reproducibility, check the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (Files contained in ./data/Netflix/Train_Test have been created following the authors' pipeline).  
 
-`Netflix` [Our Split]: For our benchmarking we used data available at the Google Drive link above (path: ./data/Netflix/Train_Val_Test) 
+`Netflix` [Our Split]: For our benchmarking we used data available in the [data storage]((https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing)) (path: ./data/Netflix/Train_Val_Test) 
 
-`Amazon-DigitalMusic`: Original dataset available at https://cseweb.ucsd.edu/~jmcauley/datasets/amazon/links.html, processed with Ducho (GitHub repository: https://github.com/sisinflab/Ducho.git): 
+`Amazon-DigitalMusic`: The original dataset is available [here](https://cseweb.ucsd.edu/~jmcauley/datasets/amazon/links.html), it has been processed with [Ducho](https://github.com/sisinflab/Ducho.git): 
 1. Downloading of the Original Dataset (Digital_Music) via Ducho/demos/demo_recsys/download_amazon.sh
 2. Processing of the dataset via Ducho/demos/demo_recsys/prepare_dataset.py with name='Digital_Music' and the meta dataset including also 'title' (two checks on its value should be added: NaN values or values with a string length = 0 are not allowed)
 
-The already processed dataset is available at the Google Drive link above (path: ./data/Amazon).
+The already processed dataset is available in the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (path: ./data/Amazon).
 
 To run each experiment, you have to put all the necessary input data in:
 ```
@@ -59,8 +59,11 @@ set `dataset = 'netflix'`, `llm = 'gpt35'`
     python ./main.py --dataset netflix
     ```
 
-Note: we used Microsoft Azure AI platform to access all LLMs. 
+For Baselines reproducibility, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository.
+The corresponding configuration files used are in the config_files directory of the said repository. 
+Add `binarize: True` in the config files in order to use the provided versions of both datasets. 
 
+Note: we used Microsoft Azure AI platform to access all LLMs. 
 
 <h4> RQ2: Benchmarking with LLama </h4>
 
@@ -99,8 +102,11 @@ and set: `dataset = 'netflix'`, `llm = 'llama'`
 
 <h4> RQ3: Benchmarking with new baselines and RLMRec </h4>
 
-- To run the new recommendation baselines, use: https://github.com/sisinflab/Graph-Missing-Modalities
-- To run RLMRec, use the official repository: https://github.com/HKUDS/RLMRec
+- For new recommendation baselines, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository.
+
+- For RLMRec, use the official [repository](https://github.com/HKUDS/RLMRec).
+Substitute the corresponding directories in RLMRec (./emb, ./item, ./user) to the ones in the downloaded repository (path: ./generation). Dataset already augmented and processed is available in the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (path: ./data/Netflix/Train_Val_Test/RLMRec)
+
 
 <h4> RQ4: Benchmarking on Amazon-music dataset </h4>
 
@@ -131,13 +137,13 @@ The code for the computation of the following characteristics: `['space_size', '
                             'gini_item', 'average_degree_users', 'average_degree_items',
                             'average_clustering_coefficient_dot_users',
                             'average_clustering_coefficient_dot_items', 'degree_assortativity_users',
-                            'degree_assortativity_items']` is contained in the Topology directory and based on the GitHub repository at https://github.com/sisinflab/Topology-Graph-Collaborative-Filtering.git
+                            'degree_assortativity_items']` is contained in the Topology directory and based on the [GitHub repository](https://github.com/sisinflab/Topology-Graph-Collaborative-Filtering.git)
 
 ```
 python Topology/check_dataset.py
 python Topology/generate_only_characteristics.py
 ```
-The already processed and analyzed data are available at the Google Drive link above (path: ./data_Topology)
+The already processed and analyzed data are available in the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (path: ./data_Topology)
 
 <h2> Hyperparameter study </h2>
 
