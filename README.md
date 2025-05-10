@@ -60,8 +60,8 @@ set `dataset = 'netflix'`, `llm = 'gpt35'`
     ```
 
 For Baselines reproducibility, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository.
-[The corresponding configuration files used are in the config_files directory of the said repository. 
-Add `binarize: True` in the config files in order to use the provided versions of both datasets.](#elliot) 
+The corresponding configuration files used are in the config_files directory of the said repository. 
+Add `binarize: True` in the config files in order to use the provided versions of both datasets.[](#elliot) 
 
 Note: we used Microsoft Azure AI platform to access all LLMs. 
 
