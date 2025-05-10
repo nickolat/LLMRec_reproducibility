@@ -4,7 +4,7 @@ This repository contains reproducibility and benchmarking codes for the [LLMRec 
 
 -----------
 
-<h2> Datasets </h2>
+## Datasets
 
 The anonymous data storage is available [here](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing).
 
@@ -27,9 +27,9 @@ To run each experiment, you have to put all the necessary input data in:
         ├── amazon/
 ```
 
-<h2> Usage </h2>
+## Usage
 
-<h4> RQ1: Replicability and reproducibility study </h4>
+### RQ1: LLMRec replicability and reproducibility
 
 For LLMRec replicability: 
 - We used the original code in the official repository, specifically the
@@ -60,13 +60,20 @@ set `dataset = 'netflix'`, `llm = 'gpt35'`
     python ./main.py --dataset netflix
     ```
 
-For Baselines reproducibility, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository.
-The corresponding configuration files used are in the config_files directory of the said repository. 
-Add `binarize: True` in the config files in order to use the provided versions of both datasets. 
+Note: we used Microsoft Azure AI platform to access all LLMs.
 
-Note: we used Microsoft Azure AI platform to access all LLMs. 
+### RQ1: Baselines reproducibility
 
-<h4> RQ2: Benchmarking with LLama </h4>
+For LATTICE and MMSSL use the official LLMRec repository;
+for MICRO use its official [repository](https://github.com/CRIPAC-DIG/MICRO).
+
+For the other baselines, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository. 
+- Use the corresponding configuration files in the `config_files` directory of that repository. 
+- Add `binarize: True` in the config files in order to use the provided versions of both datasets. 
+- To enable deterministic behavior with CUDA, set: `os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"`.
+
+
+### RQ2: Benchmarking with LLama
 
 1. Use codes in `LLM_aug_unimodal`
 2. Set your keys and endpoints in `utils.py` to use `Meta-Llama-3.1-405B-Instruct` LLM
@@ -84,7 +91,7 @@ and set: `dataset = 'netflix'`, `llm = 'llama'`
     python ./main.py --dataset netflix
     ```
 
-<h4> RQ2: Benchmarking with GPT-4 Turbo </h4>
+### RQ2: Benchmarking with GPT-4 Turbo
 
 1. Add the `LLM_aug_multimodal` directory to LLMRec
 2. Update `key` and `endpoint` in `utilities.py` with your own subscription key and endpoint values
@@ -101,15 +108,16 @@ and set: `dataset = 'netflix'`, `llm = 'llama'`
     python ./main.py --dataset netflix
     ```
 
-<h4> RQ3: Benchmarking with new baselines and RLMRec </h4>
+### RQ3: Benchmarking with new baselines and RLMRec
 
-- For new recommendation baselines, use the last version of [ELLIOT](https://github.com/sisinflab/Graph-Missing-Modalities) repository following the same instructions defined above.
+For the new recommendation baselines, follow the same instructions defined [above](#rq1-baselines-reproducibility).
 
-- For RLMRec, use the official [repository](https://github.com/HKUDS/RLMRec).
-Substitute the corresponding directories in RLMRec (./emb, ./item, ./user) to the ones in the downloaded repository (path: ./generation). Dataset already augmented and processed is available in the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (path: ./data/Netflix/Train_Val_Test/RLMRec)
+For RLMRec, use the official [repository](https://github.com/HKUDS/RLMRec). 
+- Substitute the corresponding directories in RLMRec (./emb, ./item, ./user) to the ones in the downloaded repository (path: ./generation). 
+- Dataset already augmented and processed is available in the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (path: ./data/Netflix/Train_Val_Test/RLMRec).
 
 
-<h4> RQ4: Benchmarking on Amazon-music dataset </h4>
+### RQ4: Benchmarking on Amazon-music dataset
 
 In order to execute LLMRec with the Amazon-music dataset and `gpt-35-turbo-16k`:
 1. Use codes in `LLM_aug_unimodal`
@@ -132,7 +140,7 @@ In order to execute LLMRec with the Amazon-music dataset and `gpt-35-turbo-16k`:
     python ./main.py --dataset amazon
     ```
 
-<h4> RQ5: Topological properties of the LLM-augmented user-item graph </h4>
+### RQ5: Topological properties of the LLM-augmented user-item graph
 
 The code for the computation of the following characteristics: `['space_size', 'shape', 'density', 'gini_user',
                             'gini_item', 'average_degree_users', 'average_degree_items',
@@ -146,7 +154,7 @@ python Topology/generate_only_characteristics.py
 ```
 The already processed and analyzed data are available in the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (path: ./data_Topology)
 
-<h2> Hyperparameter study </h2>
+## Hyperparameter study
 
 In the following, the complete gridsearch of the Baselines on the chosen hyperparameters is reported in terms of Recall@20, nDCG@20 and Precision@20.
 In bold, the best hyperparameters.
@@ -156,7 +164,7 @@ without additional codes, you have to replace `self.test(users_to_test, is_val=F
 `self.test(users_to_val, is_val=True)` in the `main.py` file.
 
 
-<h4>Netflix</h4>
+### Netflix
 The results in the table are reported after evaluation on the original test set provided by the authors' paper.
 
 | Baseline  | R@20   | N@20   | P@20   | Hyperparameter Search                                                                                                          |
@@ -174,7 +182,7 @@ The results in the table are reported after evaluation on the original test set 
 | SGL       | 0.0732 | 0.0273 | 0.0037 | lr: [0.0001, 0.0005, 0.001, **0.005**, 0.01], l_w: [1e-5, **1e-2**]                                                            |
 | *RLMRec** | 0.0683 | 0.0231 | 0.0034 | layer_num: [1,2,3,**4**], reg_weight: [0.5e-6, **0.83e-6**, 1.0e-6, 1.5e-6, 2.0e-6]                                            |
 
-<h4>Amazon-Music</h4>
+### Amazon-Music
 
 | Baseline | R@20   | N@20   | P@20   | Hyperparameter Search                                                                                                          |
 |----------|--------|--------|--------|--------------------------------------------------------------------------------------------------------------------------------|
