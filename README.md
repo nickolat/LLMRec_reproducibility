@@ -1,12 +1,14 @@
 # How Powerful are LLMs to Support Multimodal Recommendation? A Reproducibility Study of LLMRec
 
-This repository contains reproducibility and benchmarking codes for the [LLMRec paper](https://doi.org/10.1145/3616855.3635853).
+This repository contains reproducibility and benchmarking codes from the paper 
+"How Powerful are LLMs to Support Multimodal Recommendation? A Reproducibility Study of LLMRec", 
+accepted at the 19th ACM Conference on Recommender Systems ([RecSys 2025](https://recsys.acm.org/recsys25/)).
 
 -----------
 
 ## Datasets
 
-The anonymous data storage is available [here](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing).
+The data storage is available [here](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing).
 
 `Netflix` [Original Split]: For replicability, dataset is available in [LLMRec GitHub repository](https://github.com/HKUDS/LLMRec.git).
 For reproducibility, check the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (Files contained in ./data/Netflix/Train_Test have been created following the authors' pipeline).  
@@ -153,3 +155,17 @@ python Topology/check_dataset.py
 python Topology/generate_only_characteristics.py
 ```
 The already processed and analyzed data are available in the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (path: ./data_Topology)
+
+## The team
+
+* Maria Lucia Fioretti (m.fioretti1@studenti.poliba.it)
+* Nicola Laterza (n.laterza4@studenti.poliba.it)
+* Alessia Preziosa (a.preziosa2@studenti.poliba.it)
+* Daniele Malitesta (daniele.malitesta@centralesupelec.fr)
+* Claudio Pomo (claudio.pomo@poliba.it)
+* Fedelucio Narducci (fedelucio.narducci@poliba.it)
+* Tommaso Di Noia (tommaso.dinoia@poliba.it)
+
+## Acknowledgements
+
+This work is based on [LLMRec paper](https://doi.org/10.1145/3616855.3635853).
