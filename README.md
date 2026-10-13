@@ -1,8 +1,10 @@
 # How Powerful are LLMs to Support Multimodal Recommendation? A Reproducibility Study of LLMRec
 
-This repository contains reproducibility and benchmarking codes from the paper 
-"How Powerful are LLMs to Support Multimodal Recommendation? A Reproducibility Study of LLMRec", 
-accepted at the 19th ACM Conference on Recommender Systems ([RecSys 2025](https://recsys.acm.org/recsys25/)).
+[![RecSys'25](https://img.shields.io/badge/ACM_RecSys-Paper-blue?logo=acm&logoColor=white)](https://doi.org/10.1145/3705328.3748154)
+
+This repository contains reproducibility and benchmarking codes from our paper 
+accepted at the 19th ACM Conference on Recommender Systems ([RecSys '25](https://recsys.acm.org/recsys25/)):
+> How Powerful are LLMs to Support Multimodal Recommendation? A Reproducibility Study of LLMRec
 
 -----------
 
@@ -156,15 +158,27 @@ python Topology/generate_only_characteristics.py
 ```
 The already processed and analyzed data are available in the [data storage](https://drive.google.com/file/d/1ktu5GOBoL0uUrdM70EQVXHZpMc3LRctB/view?usp=sharing) (path: ./data_Topology)
 
-## The team
+## Citation
 
-* Maria Lucia Fioretti (m.fioretti1@studenti.poliba.it)
-* Nicola Laterza (n.laterza4@studenti.poliba.it)
-* Alessia Preziosa (a.preziosa2@studenti.poliba.it)
-* Daniele Malitesta (daniele.malitesta@centralesupelec.fr)
-* Claudio Pomo (claudio.pomo@poliba.it)
-* Fedelucio Narducci (fedelucio.narducci@poliba.it)
-* Tommaso Di Noia (tommaso.dinoia@poliba.it)
+```bibtex
+@inproceedings{DBLP:conf/recsys/FiorettiLPMPNN25,
+  author       = {Maria Lucia Fioretti and
+                  Nicola Laterza and
+                  Alessia Preziosa and
+                  Daniele Malitesta and
+                  Claudio Pomo and
+                  Fedelucio Narducci and
+                  Tommaso Di Noia},
+  title        = {How Powerful are LLMs to Support Multimodal Recommendation? A Reproducibility
+                  Study of LLMRec},
+  booktitle    = {Proceedings of the Nineteenth {ACM} Conference on Recommender Systems, RecSys 2025},
+  pages        = {774--782},
+  publisher    = {{ACM}},
+  year         = {2025},
+  doi          = {10.1145/3705328.3748154},
+  url          = {https://doi.org/10.1145/3705328.3748154}
+}
+```
 
 ## Acknowledgements
 
